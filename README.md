@@ -26,6 +26,27 @@ Conventions on a large team are powerful. They lend familiarity and allow team t
 - [ ] **Document coding conventions** - Type of casing for the code, naming conventions for configuration properties, code elements, rest endpoints, database tables & columns, queue names, cloud components, etc. Outline a predictable code layout and structure. Adopt language idioms and document them. Avoid redudant code comments. If possible generate and review comments for code using coding assistants and keep them updated
 
 
+## REST/WEB API Specifications
+Web APIs are a dominant integration point for applications. Design is difficult in future and require complex manouvering like versioning, backward-compatibility when active consumers exist. It is crucial to have a future proofing view on WEB specifications to ensure that contracts offer as much flexibility as possible and remain malleable to defer complexity of versioning and wider structural changes. 
+
+### Benefits
+- [ ] Integrations / Interoperability
+- [ ] Modularity (_composing via integrations_)
+
+### Anti patterns
+- [ ] Usage of incorrect HTTP verbs or mutating state on GET verb or executing updates with POST
+
+
+### Best practices
+- [ ] **Structured content, metadata & error** - API contract with placeholders for content, metadata and error messages that remains consistent across API
+- [ ] **HATEOAS Level 2** - Usage of atleast Level II HATEOAS standards in REST APIs (Resources, Methods, Status code, Query params and Headers)
+- [ ] **Versioning** - If there is a need for backward compatibility or versioning in API, then url versioning or header based versioning should be in place
+- [ ] **Error handling** - Errors should be handled with messages, code and HTTP status codes to provide a consistent experience and right status codes should be mapped. 5xx vs 4xx for different error categories
+- [ ] **Security** - Consistent authentication and authorization mechanisms should be followed. Preferably something along the lines of JWT Tokens using OAuth 2.0. SSL termination should happen at the entry point
+- [ ] **Documentation** - Live documentation for the API using tools like swagger to have a functioning API playground as well as updated documentation that is auto generated with changes to the API
+- [ ] **Etags/Caching** - Response caching should be enabled using ETags
+- [ ] **Pagination / Metadata** - Response should include metadata on total number of elements, total number of pages, elements per page and current page number. Additional good to have would be navigation elements for the next and previous pages in the response 
+
 
 ## Domain model
 ### Ideal
