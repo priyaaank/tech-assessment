@@ -57,14 +57,34 @@ Web APIs are a dominant integration point for applications. Design is difficult 
 
 
 ## Domain model
-### Ideal
+### Mental model
+Domain models are about understanding a problem space and decomposing it into relevant domain objects and their relationships. Creating domain models cements terminology used in business domain and identify relationships. Mapping this domain makes it easier to map real world hand-offs & interconnections in programs. A well constructed domain model can result in a more elegant code that evolves gracefully and is able to handle complex business logic with ease. 
+
+### Anti patterns
+- [ ] **Absent concious domain model**
+- [ ]  
 
 
-### Checklist
+### Best practices
+- [ ] **A shared domain model** - There is a documented and shared domain model that lends to a shared understanding of individual entities, value objects, aggregates etc within the development and business team. The relationships and cardinality are well stated. This domain model can be constrasted against code to reason with overall design
+- [ ] 
 
 
-### Key Indicators
+## Database interaction
 
+* Transaction management
+* Querying (ORM, Explicit)
+* Index usage and query structure / simplicity
+* Denormalization and Normalization
+* Migration management
+* Testing
+* ORM mappings - Constraints,
+* Usage of Triggers, Procedures
+* Connection pooling
+* Param substitution
+* Limits in queries (explicit bounds to prevent crash or OOM)
+* Explicit column specifications (instead of blind selects)
+* N+1 query problem
 
 
 
