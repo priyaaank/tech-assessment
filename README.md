@@ -35,7 +35,11 @@ Web APIs are a dominant integration point for applications. Design is difficult 
 
 ### Anti patterns
 - [ ] Usage of incorrect HTTP verbs or mutating state on GET verb or executing updates with POST
-
+- [ ] Inconsistent response formats
+- [ ] Non standard error codes
+- [ ] Ignoring HTTP methods/verbs
+- [ ] Usage of verbs in resource names
+- [ ] Convoluted versioning schemes
 
 ### Best practices
 - [ ] **Structured content, metadata & error** - API contract with placeholders for content, metadata and error messages that remains consistent across API
