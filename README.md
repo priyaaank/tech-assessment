@@ -34,12 +34,14 @@ Web APIs are a dominant integration point for applications. Design is difficult 
 - [ ] Modularity (_composing via integrations_)
 
 ### Anti patterns
-- [ ] Usage of incorrect HTTP verbs or mutating state on GET verb or executing updates with POST
-- [ ] Inconsistent response formats
-- [ ] Non standard error codes
-- [ ] Ignoring HTTP methods/verbs
-- [ ] Usage of verbs in resource names
-- [ ] Convoluted versioning schemes
+- [ ] **Usage of incorrect HTTP verbs** or mutating state on GET verb or executing updates/creates/gets/delete with only POST
+- [ ] **Inconsistent response formats**
+- [ ] **Non standard error codes**
+- [ ] **Ignoring HTTP methods/verbs**
+- [ ] **Usage of verbs in resource names**
+- [ ] **Convoluted versioning schemes**
+- [ ] **Sub-Resource as independent resource** - Even though some resources have tight coupling with a parent resource, they are created as an independent resource (_e.g. BlogPost and Comments_)
+
 
 ### Best practices
 - [ ] **Structured content, metadata & error** - API contract with placeholders for content, metadata and error messages that remains consistent across API
@@ -49,7 +51,9 @@ Web APIs are a dominant integration point for applications. Design is difficult 
 - [ ] **Security** - Consistent authentication and authorization mechanisms should be followed. Preferably something along the lines of JWT Tokens using OAuth 2.0. SSL termination should happen at the entry point
 - [ ] **Documentation** - Live documentation for the API using tools like swagger to have a functioning API playground as well as updated documentation that is auto generated with changes to the API
 - [ ] **Etags/Caching** - Response caching should be enabled using ETags
-- [ ] **Pagination / Metadata** - Response should include metadata on total number of elements, total number of pages, elements per page and current page number. Additional good to have would be navigation elements for the next and previous pages in the response 
+- [ ] **Pagination / Metadata** - Response should include metadata on total number of elements, total number of pages, elements per page and current page number. Additional good to have would be navigation elements for the next and previous pages in the response
+- [ ] **Data types** - Data type for complex objects like Date, Time, Money etc. should be preserved, appropriately detailed (_Timezones included in time, currency included in Money etc._) and be self descriptive in the API contracts with right precision enforced.
+- [ ] **Separate response/request objects** - Mapping API request and response contracts to separate presenter like objects. This isolates contract level details in code and allow for view specific validations to be done seperately. Also allows paradigm like BFF to be implemented with ease
 
 
 ## Domain model
