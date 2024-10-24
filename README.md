@@ -12,11 +12,19 @@ Conventions on a large team are powerful. They lend familiarity and allow team t
 - [ ] Maintainability
 - [ ] Consistency
 
-### Things to evaluate
-- [ ] Magic strings - Are there strings
-- [ ] Error messages - How are they maintained?
-- [ ] Configuration management - How are configs managed and overridden for different environments?
-- [ ] 
+### Anti patterns
+- [ ] **Magic strings** - String embedded into the code directly. These are anti-pattern because they reduce reusability and require duplicate code changes for any string change. Ideally should be externalized, if not into a config then into a variable. For i18n it is ideal to extract into config files that can be translated and substituted
+- [ ] **Hard-coded error messages** - Error messages should be treated as strings, and should be either maintained with constants at minimum or be externalized as strings
+- [ ] **Unused imports** - Unused imports increase code clutter and while are often optimized by compilers at compile time, they can have a performance impact during compile time if not at runtime
+- [ ] **Unformatted code** - Inconsistently formatted code is harder to read
+
+### Best practices
+- [ ] **Code linters** - Embed tooling in CI pipeline to identify linting errors and fail the build when errors exist
+- [ ] **Pre-commit hook for code formatting** - Have IDE based automatic code formatting or enable a pre-commit hook to ensure code is formatted and imports are optimized
+- [ ] **Configuration management** - Manage configuration consistently across application. Differentiate between secrets and configurations. Allow configurations to be overridden by different environment/profiles. Use established formats like YAML, properties etc. for managing config. Properties should be separated from the code and ideally should be possible to hot reload properties in a running application. 
+- [ ] **Naming** - Name for classes should be Nouns or noun phrases (_Customer, UserProfile etc._) and should be concrete instead of being generic (_Data, Object_). Properties of a class should be noun or adjectives (_age, isActive etc_). Methods should be verb or verb phrases (_sendEmail, loadProfile etc._) and should be concrete instead of being generic (_process, execute etc._). Configuration properties should be named appropriately as well (_timeDelayInMillis is better than timeDelay_). Use domain terminology in naming and relationships between objects.
+- [ ] **Document coding conventions** - Type of casing for the code, naming conventions for configuration properties, code elements, rest endpoints, database tables & columns, queue names, cloud components, etc. Outline a predictable code layout and structure. Adopt language idioms and document them. Avoid redudant code comments. If possible generate and review comments for code using coding assistants and keep them updated
+
 
 
 ## Domain model
